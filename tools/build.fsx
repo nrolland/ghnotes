@@ -10,8 +10,8 @@ let generateDocs() =
   let sources = Path.Combine(source, "../docs")
   let output = Path.Combine(source, "../output")
   let options = 
-    "--reference:\"" + source + "/../bin/FSharp.CodeFormat.dll\" " +
-    "--reference:\"" + source + "/../bin/FSharp.Markdown.dll\" " +
+    "--reference:\"" + source + "/../Packages/FSharp.Formatting.1.0.6/lib/net40/FSharp.CodeFormat.dll\" " +
+    "--reference:\"" + source + "/../Packages/FSharp.Formatting.1.0.6/lib/net40/FSharp.Markdown.dll\" " +
     "--reference:System.Web.dll"
 
   let projInfo =
