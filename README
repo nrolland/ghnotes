@@ -1,0 +1,6 @@
+First install FSharp.Formatting nuget through either the install.sh script or the command
+
+    nuget install packages.config -o Packages
+
+Then you can run tools/build.fsx to compile the documents in docs/ folder
+
