@@ -39,12 +39,24 @@ Examples
 
 Those examples are taken from the book [Introduction to algorithm][cormen]
 
-Rod cutting 
+### Rod cutting 
+
+- simple recursion
 *)
-
 (*** include: rodcutting ***)
-
 (**
+
+- bottom up
+*)
+(*** include: rodcuttingbottomup ***)
+(**
+
+- memoized recursion
+*)
+(*** include: rodcuttingrecmem ***)
+(**
+
+
 Matrix product
 
 Longest Common subsequence
@@ -55,9 +67,37 @@ Optimal binary search tree
 *)
 
 (*** define: rodcutting ***)
-//rod cutting
+//rod cutting recursive - inefficient
 let p = [|1;5;8;9;10;17;17;20;24;30|]
 
-let rec r  = function | 0 -> 0
-                      | n -> Seq.init n (fun i -> p.[i] + r (n-i-1)) |> Seq.max 
-[1 .. 10] |> List.map (fun i -> i, r i) 
+let rec rodcutting_rec  = function | 0 -> 0 | n -> Seq.init n (fun i -> p.[i] + rodcutting_rec (n-i-1)) |> Seq.max 
+[1 .. 10] |> List.map (fun i -> i, rodcutting_rec i) 
+
+(*** define: rodcuttingbottomup ***)
+//rod cutting recursive - dynamic programming
+//the layout of the ordering enforces access to stored value, and folding of the computation tree
+let rodcutting_bu n = 
+    let r = Array.init (p.Length + 1) (fun _ -> 0)
+    let rec up k  = r.[k] <- Seq.init k (fun i -> p.[i] + r.[k-i-1]) |> Seq.max 
+                    if k < n then up (k+1) else r.[k]
+    up 1    
+[1 .. 10] |> List.map (fun i -> i, rodcutting_bu i) 
+
+
+(*** define: rodcuttingrecmem ***)
+//rod cutting recursive with memoization - dynamic programming
+//the memoization of each execution ensure the value storage without particular ordering
+let memoize f = 
+    let d =  System.Collections.Generic.Dictionary<_, _>()
+    d, fun n -> if d.ContainsKey n then d.[n] 
+                else d.Add(n, f n);d.[n]
+
+let rodcutting_dp n =
+    let rec rodcutting_rec  = function | 0 -> 0 | n -> Seq.init n (fun i -> p.[i] + rodcutting_rec (n-i-1)) |> Seq.max  
+    let _, mf = memoize rodcutting_rec
+    mf n
+    
+[1 .. 10] |> List.map (fun i -> i, rodcutting_dp i) 
+
+
+
