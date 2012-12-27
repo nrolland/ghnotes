@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <!-- 
-      The index parameters will be replaced with the 
+      The First-level heading
+ parameters will be replaced with the 
       document title extracted from the <h1> element or
       file name, if there is no <h1> heading
     -->
-    <title>index</title>
+    <title>First-level heading
+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="These are various notes of computer science subjects. They sometime have accompanying F# implementation They are authored in a litterate programming style and each document is a valid.">
     <meta name="author" content="Nicolas Rolland">
@@ -35,9 +37,18 @@
       <hr />
       <div class="row">
         <div class="span9" id="main">
-          <p><a href="./dynamic_prog.html">dynamic programming</a></p>
+          <h1>First-level heading</h1>
 
-                    
+<p>Some more documentation using <code>Markdown</code>.</p>
+<pre class="fssnip">
+<span class="l">1: </span><span class="k">let</span> <span onmouseout="hideTip(event, 'fsd1', 1)" onmouseover="showTip(event, 'fsd1', 1)" class="i">helloWorld</span>() <span class="o">=</span> <span onmouseout="hideTip(event, 'fsd2', 2)" onmouseover="showTip(event, 'fsd2', 2)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Hello</span><span class="s"> </span><span class="s">world</span><span class="s">!</span><span class="s">&quot;</span></pre>
+<h2>Second-level heading</h2>
+
+<p>With some more documentation</p>
+
+          <div class="tip" id="fsd1">val helloWorld : unit -&gt; unit<br /><br />Full name: Test.helloWorld</div>
+<div class="tip" id="fsd2">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+          
         </div>
         <div class="span3">
 
