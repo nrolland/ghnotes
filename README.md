@@ -21,4 +21,4 @@ Then you can run
     fsi tools/build.fsx 
 
 to compile the documents in docs/ folder
-
+the html result of this repo should be [here](http://xquant.net/ghnotes/)
