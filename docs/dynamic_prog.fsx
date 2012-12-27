@@ -1,3 +1,4 @@
+(**
 Dynamic programming 
 ===================================
 
@@ -39,7 +40,11 @@ Examples
 Those examples are taken from the book [Introduction to algorithm][cormen]
 
 Rod cutting 
+*)
 
+(*** include: rodcutting ***)
+
+(**
 Matrix product
 
 Longest Common subsequence
@@ -47,3 +52,7 @@ Longest Common subsequence
 Optimal binary search tree
 
 [cormen]:http://en.wikipedia.org/wiki/Introduction_to_Algorithms
+*)
+
+(*** define: rodcutting ***)
+let h = "hello"

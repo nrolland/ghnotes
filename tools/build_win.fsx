@@ -14,6 +14,13 @@ let generateDocs() =
     "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.7\\lib\\net40\\FSharp.Markdown.dll\" " +
     "--reference:System.Web.dll"
 
+  let jscss = Path.Combine(output, "content")
+  Directory.CreateDirectory(jscss) |> ignore
+  Directory.GetFiles((Path.Combine(source, "../packages/FSharp.Formatting.1.0.7/literate/content")))
+  |> Array.map (fun f -> File.Copy(f, Path.Combine(jscss, Path.GetFileName f), true) ) |> ignore
+  
+
+
   let projInfo =
       [ "page-description", """These are various notes of computer science subjects. They sometime have accompanying F# implementation 
                             They are authored in a litterate programming style and each document is a valid.""".Replace("\n","").Replace("                            ", "")
