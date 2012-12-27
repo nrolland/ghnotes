@@ -55,4 +55,8 @@ Optimal binary search tree
 *)
 
 (*** define: rodcutting ***)
-let h = "hello"
+//rod cutting
+let p = [|1;5;8;9;10;17;17;20;24;30|]
+
+let rec r n = seq { yield p.[n-1]; for i in 1..(n-1) -> (p.[i-1] + r (n-i)) } |> Seq.max 
+[1 .. 10] |> List.map (fun i -> i, r i) 
