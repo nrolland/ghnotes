@@ -8,7 +8,7 @@ let generateDocs() =
   let source = __SOURCE_DIRECTORY__
   let template = Path.Combine(source, "template.html")
   let sources = Path.Combine(source, "../docs")
-  let output = Path.Combine(source, "../output")
+  let output = Path.Combine(source, "../")
   let options = 
     "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.7\\lib\\net40\\FSharp.CodeFormat.dll\" " +
     "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.7\\lib\\net40\\FSharp.Markdown.dll\" " +
