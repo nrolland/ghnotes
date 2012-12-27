@@ -1,5 +1,5 @@
-#I "../packages/FSharp.Formatting.1.0.6/lib/net40"
-#load "../packages/FSharp.Formatting.1.0.6/literate/literate.fsx"
+#I "../packages/FSharp.Formatting.1.0.7/lib/net40"
+#load "../packages/FSharp.Formatting.1.0.7/literate/literate.fsx"
 open FSharp.Literate
 open System.IO
 
@@ -10,8 +10,8 @@ let generateDocs() =
   let sources = Path.Combine(source, "../docs")
   let output = Path.Combine(source, "../output")
   let options = 
-    "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.6\\lib\\net40\\FSharp.CodeFormat.dll\" " +
-    "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.6\\lib\\net40\\FSharp.Markdown.dll\" " +
+    "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.7\\lib\\net40\\FSharp.CodeFormat.dll\" " +
+    "--reference:\"" + source + "\\..\\Packages\\FSharp.Formatting.1.0.7\\lib\\net40\\FSharp.Markdown.dll\" " +
     "--reference:System.Web.dll"
 
   let projInfo =
