@@ -2,7 +2,9 @@
 #load "../packages/FSharp.Formatting.1.0.7/literate/literate.fsx"
 open FSharp.Literate
 open System.IO
+open System
 
+let toSystemPath (s:String) = s.Split([|'/'|])|> String.concat (System.IO.Path.DirectorySeparatorChar.ToString())  
 
 let generateDocs() =
   let source = __SOURCE_DIRECTORY__
@@ -10,8 +12,8 @@ let generateDocs() =
   let sources = Path.Combine(source, "../docs")
   let output = Path.Combine(source, "../..")
   let options = 
-    "--reference:\"" + Path.Combine(source, "/../Packages/FSharp.Formatting.1.0.7/lib/net40/FSharp.CodeFormat.dll") + "\" " +
-    "--reference:\"" +  Path.Combine(source, "/../Packages/FSharp.Formatting.1.0.7/lib/net40/FSharp.Markdown.dll")  + "\" " +
+    "--reference:\"" + ( Path.Combine(source, "./../Packages/FSharp.Formatting.1.0.7/lib/net40/FSharp.CodeFormat.dll") |> toSystemPath) + "\" " +
+    "--reference:\"" + ( Path.Combine(source, "./../Packages/FSharp.Formatting.1.0.7/lib/net40/FSharp.Markdown.dll") |> toSystemPath)   + "\" " +
     "--reference:System.Web.dll"
 
   let jscss = Path.Combine(output, "content")
