@@ -3,7 +3,7 @@ Dynamic programming
 ===================================
 
 
-Dynamic programming is equivalent to the folowwing two concepts used together : _recursion_ and _deforestation_
+Dynamic programming is equivalent to the folowing two concepts used together : _recursion_ and _deforestation_
 
 
 Recursion
